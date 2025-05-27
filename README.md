@@ -1,8 +1,8 @@
-# Repository Name
+# Travel Map
 
 ## Table of Contents
 
-- [Repository Name](#repository-name)
+- [Travel Map](#travel-map)
   - [Table of Contents](#table-of-contents)
   - [Contributing](#contributing)
 
