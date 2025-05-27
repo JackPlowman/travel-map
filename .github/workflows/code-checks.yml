@@ -1,0 +1,56 @@
+name: "Code Checks"
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    - cron: "0 0 * * *"
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  check-code-quality:
+    name: Check Code Quality
+    runs-on: ubuntu-latest
+    permissions:
+      statuses: write
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Lint Code Base
+        uses: super-linter/super-linter@12150456a73e248bdc94d0794898f94e23127c88 # v7.4.0
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          LINTER_RULES_PATH: .github/super-linter-configurations
+          YAML_ERROR_ON_WARNING: true
+
+  common-code-checks:
+    name: Common Code Checks
+    permissions:
+      contents: read
+      pull-requests: write
+      security-events: write
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@eb21b6a4feabfb3a7e88690281dfc7280e9806f8 # v2025.05.18.01
+    secrets:
+      workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  codeql-checks:
+    name: CodeQL Analysis
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+      matrix:
+        language: [actions]
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@75ceb782a5815a98162de1321c852df74830a493 # v2025.05.24.01
+    with:
+      language: ${{ matrix.language }}
