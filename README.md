@@ -2,10 +2,14 @@
 
 ![Development](https://img.shields.io/badge/Development-8A2BE2?style=for-the-badge&color=ff9500&label=Status)
 
+## Overview
+
 Travel Map is an interactive web app for visualizing my world travel. Highlight countries I've visited and help plan future trips. Built with Vite and modern JavaScript for fast, responsive performance.
 
 ## Table of Contents
+
 - [Travel Map](#travel-map)
+  - [Overview](#overview)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Installation and Usage](#installation-and-usage)
@@ -13,7 +17,6 @@ Travel Map is an interactive web app for visualizing my world travel. Highlight 
   - [Testing](#testing)
   - [Contributing](#contributing)
   - [License](#license)
-
 
 ## Features
 
