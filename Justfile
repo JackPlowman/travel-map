@@ -1,3 +1,5 @@
+mod website 'website/website.just'
+
 # ------------------------------------------------------------------------------
 # Prettier
 # ------------------------------------------------------------------------------
@@ -17,10 +19,12 @@ prettier-format:
 # Format Justfile
 format:
     just --fmt --unstable
+    just --fmt --unstable --justfile website/website.just
 
 # Check Justfile formatting
 format-check:
     just --fmt --check --unstable
+    just --fmt --check --unstable --justfile website/website.just
 
 # ------------------------------------------------------------------------------
 # Gitleaks
