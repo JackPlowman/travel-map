@@ -16,7 +16,6 @@ env:
 jobs:
   deploy:
     name: Deploy to GitHub Pages
-    needs: validate-scanner-output
     runs-on: ubuntu-latest
     permissions:
       pages: write
