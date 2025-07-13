@@ -78,8 +78,8 @@ jobs:
     with:
       language: ${{ matrix.language }}
 
-  run-typescript-lint-checks:
-    name: Run TypeScript Lint Checks
+  run-javascript-lint-checks:
+    name: Run JavaScript Lint Checks
     runs-on: ubuntu-latest
     permissions:
       security-events: write
@@ -113,8 +113,8 @@ jobs:
       - name: Run ESLint
         run: just website::lint
 
-  run-typescript-format-checks:
-    name: Run TypeScript Format Checks
+  run-javascript-format-checks:
+    name: Run JavaScript Format Checks
     runs-on: ubuntu-latest
     permissions:
       security-events: write
