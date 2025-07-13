@@ -7,6 +7,6 @@ const map = new jsVectorMap({
   selector: "#map",
   map: "world",
   regionStyle: {
-    selectedHover: { fill: 'gray' },
+    selectedHover: { fill: "gray" },
   },
 });
