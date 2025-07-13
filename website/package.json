@@ -9,9 +9,9 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "jsvectormap": "^1.7.0"
+    "jsvectormap": "1.7.0"
   },
   "devDependencies": {
-    "vite": "^7.0.4"
+    "vite": "7.0.4"
   }
 }
