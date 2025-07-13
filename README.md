@@ -57,7 +57,7 @@ Travel Map is an interactive web app for visualizing my world travel. Highlight 
 
 ## Testing
 
-- TODO: Add integration tests for website
+- TODO: Add integration tests for site
 
 ## Contributing
 
