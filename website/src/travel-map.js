@@ -1,7 +1,7 @@
-import "./style.css";
-import jsVectorMap from "jsvectormap";
-import "jsvectormap/dist/jsvectormap.min.css";
-import "jsvectormap/dist/maps/world";
+import jsVectorMap from "jsvectormap"
+import "jsvectormap/dist/jsvectormap.min.css"
+import "jsvectormap/dist/maps/world"
+import "./style.css"
 
 const map = new jsVectorMap({
   selector: "#map",
@@ -9,4 +9,4 @@ const map = new jsVectorMap({
   regionStyle: {
     selectedHover: { fill: "gray" },
   },
-});
+})
