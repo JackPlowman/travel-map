@@ -1,5 +1,7 @@
 # Travel Map
 
+[Development](https://img.shields.io/badge/Development-8A2BE2?style=for-the-badge&color=ff9500&label=Status)
+
 ## Table of Contents
 
 - [Travel Map](#travel-map)
