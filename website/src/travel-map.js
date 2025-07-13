@@ -16,6 +16,7 @@ const places = [
   "CY", // Cyprus
   "GR", // Greece
   "TR", // Turkey
+  "NO", // Norway
 
   // Asia
   "CN", // China
