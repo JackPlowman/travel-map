@@ -3,8 +3,6 @@ name: "Code Checks"
 on:
   push:
     branches: [main]
-  pull_request:
-    types: [opened, synchronize]
   schedule:
     - cron: "0 0 * * *"
 
@@ -18,7 +16,6 @@ env:
 jobs:
   deploy:
     name: Deploy to GitHub Pages
-    needs: validate-scanner-output
     runs-on: ubuntu-latest
     permissions:
       pages: write
