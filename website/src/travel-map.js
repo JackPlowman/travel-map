@@ -9,15 +9,16 @@ const places = [
   "US", // United States
 
   // Europe
-  "GB", // United Kingdom
-  "IT", // Italy
-  "FR", // France
-  "ES", // Spain
-  "PT", // Portugal
   "CY", // Cyprus
+  "ES", // Spain
+  "FR", // France
+  "GB", // United Kingdom
   "GR", // Greece
-  "TR", // Turkey
+  "IT", // Italy
+  "MT", // Malta
   "NO", // Norway
+  "PT", // Portugal
+  "TR", // Turkey
 
   // Asia
   "CN", // China
