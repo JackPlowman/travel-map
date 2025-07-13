@@ -1,3 +1,4 @@
+import "./style.css";
 import jsVectorMap from "jsvectormap";
 import "jsvectormap/dist/jsvectormap.min.css";
 import "jsvectormap/dist/maps/world";
