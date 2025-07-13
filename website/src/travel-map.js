@@ -32,7 +32,7 @@ new jsVectorMap({
   map: "world",
   regionStyle: {
     selectedHover: { fill: "gray" },
-    selected: { fill: 'green' },
+    selected: { fill: "green" },
   },
   selectedRegions: places,
 })
