@@ -6,4 +6,7 @@ import "jsvectormap/dist/maps/world";
 const map = new jsVectorMap({
   selector: "#map",
   map: "world",
+  regionStyle: {
+    selectedHover: { fill: 'gray' },
+  },
 });
