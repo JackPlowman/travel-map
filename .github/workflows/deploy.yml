@@ -1,4 +1,4 @@
-name: "Code Checks"
+name: "Deploy to GitHub Pages"
 
 on:
   push:
@@ -8,10 +8,6 @@ on:
 
 permissions:
   contents: read
-  packages: read
-
-env:
-  FORCE_COLOR: 1
 
 jobs:
   deploy:
@@ -35,7 +31,7 @@ jobs:
       - name: Set up Just
         uses: extractions/setup-just@e33e0265a09d6d736e2ee1e0eb685ef1de4669ff # v3.0.0
       - name: Install dependencies
-        run: just website::ci
+        run: just website::install-ci
       - name: Build
         run: just website::build
       - name: Setup Pages
