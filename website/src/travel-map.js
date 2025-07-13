@@ -3,7 +3,7 @@ import "jsvectormap/dist/jsvectormap.min.css"
 import "jsvectormap/dist/maps/world"
 import "./style.css"
 
-const map = new jsVectorMap({
+new jsVectorMap({
   selector: "#map",
   map: "world",
   regionStyle: {
