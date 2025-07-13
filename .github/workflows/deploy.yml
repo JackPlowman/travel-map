@@ -1,4 +1,4 @@
-name: "Code Checks"
+name: "Deploy to GitHub Pages"
 
 on:
   push:
