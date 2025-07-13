@@ -3,6 +3,7 @@ import "jsvectormap/dist/jsvectormap.min.css"
 import "jsvectormap/dist/maps/world"
 import "./style.css"
 
+// Codes - https://en.wikipedia.org/wiki/ISO_3166-2
 const places = [
   // North America
   "US", // United States
