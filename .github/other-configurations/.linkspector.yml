@@ -5,3 +5,5 @@ excludedFiles:
   - ./CHANGELOG.md
 aliveStatusCodes:
   - 200
+ignorePatterns:
+  - pattern: "http://localhost:5173"
