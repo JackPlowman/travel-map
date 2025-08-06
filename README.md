@@ -175,7 +175,7 @@ Please read our [Contributing Guidelines](docs/CONTRIBUTING.md) before submittin
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT Licence - see the [LICENCE](LICENCE) file for details.
 
 ---
 
