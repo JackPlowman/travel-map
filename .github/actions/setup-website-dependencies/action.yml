@@ -1,6 +1,5 @@
-name: "Setup website Dependencies"
-description: "Installs dependencies for the project"
-
+name: "Setup Website Dependencies"
+description: "Installs website dependencies for the project"
 runs:
   using: "composite"
   steps:
