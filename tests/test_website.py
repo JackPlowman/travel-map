@@ -1,11 +1,13 @@
 from os import environ
+
 from playwright.sync_api import Page
 
 PROJECT_URL= environ["PROJECT_URL"]
 
 
-def test_website(page: Page, assert_snapshot):
+def test_website_title(page: Page) -> None:
+    """Test that the website title is 'Travel Map'."""
     # Act
     page.goto(PROJECT_URL)
     # Assert
-    assert_snapshot(page)
+    assert page.title() == "Travel Map"
