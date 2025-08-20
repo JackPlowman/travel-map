@@ -1,5 +1,5 @@
-name: "Setup Dependencies"
-description: "Installs dependencies for the project"
+name: "Setup Test Dependencies"
+description: "Installs test dependencies for the project"
 
 inputs:
   setup-browsers:
