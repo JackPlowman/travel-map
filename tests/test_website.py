@@ -2,7 +2,7 @@ from os import environ
 
 from playwright.sync_api import Page
 
-PROJECT_URL= environ["PROJECT_URL"]
+PROJECT_URL = environ["PROJECT_URL"]
 
 
 def test_website_title(page: Page) -> None:
