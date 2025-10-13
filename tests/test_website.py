@@ -1,6 +1,8 @@
 from os import environ
+from typing import TYPE_CHECKING
 
-from playwright.sync_api import Page
+if TYPE_CHECKING:
+    from playwright.sync_api import Page
 
 PROJECT_URL = environ["PROJECT_URL"]
 
