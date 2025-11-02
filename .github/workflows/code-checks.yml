@@ -170,3 +170,4 @@ jobs:
         with:
           target: "https://jackplowman.github.io/travel-map/"
           allow_issue_writing: false
+          fail_action: true
