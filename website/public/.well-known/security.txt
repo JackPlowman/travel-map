@@ -1,0 +1,7 @@
+# Security.txt file for Travel Map
+# This is a public travel map website with no sensitive data
+# For security concerns, please contact via GitHub issues
+
+Contact: https://github.com/JackPlowman/travel-map/issues
+Expires: 2025-12-31T23:59:59.000Z
+Preferred-Languages: en
