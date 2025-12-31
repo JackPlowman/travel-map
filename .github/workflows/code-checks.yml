@@ -19,17 +19,6 @@ env:
   FORCE_COLOR: 1
 
 jobs:
-  common-code-checks:
-    name: Common Code Checks
-    permissions:
-      contents: read
-      actions: read # Allow the workflow to read actions metadata
-      pull-requests: write # Allow the workflow to create and modify pull request comments
-      security-events: write # Allow the workflow to upload analysis results
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
-    secrets:
-      workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
-
   codeql-checks:
     name: CodeQL Analysis
     permissions:
@@ -41,6 +30,34 @@ jobs:
     uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
     with:
       language: ${{ matrix.language }}
+
+  common-code-checks:
+    name: Common Code Checks
+    permissions:
+      contents: read
+      actions: read # Allow the workflow to read actions metadata
+      pull-requests: write # Allow the workflow to create and modify pull request comments
+      security-events: write # Allow the workflow to upload analysis results
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
+    secrets:
+      workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
+
+  run-javascript-format-checks:
+    name: Run JavaScript Format Checks
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Setup Website Dependencies
+        uses: ./.github/actions/setup-website-dependencies
+      - name: Install Dependencies
+        working-directory: website
+        run: npm ci
+      - name: Run Prettier
+        run: just website::prettier-check
 
   run-javascript-lint-checks:
     name: Run JavaScript Lint Checks
@@ -71,8 +88,8 @@ jobs:
       - name: Run ESLint
         run: just website::lint
 
-  run-javascript-format-checks:
-    name: Run JavaScript Format Checks
+  run-python-tests-format-checks:
+    name: Run Python Tests Format Checks
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -80,13 +97,12 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: false
-      - name: Setup Website Dependencies
-        uses: ./.github/actions/setup-website-dependencies
-      - name: Install Dependencies
-        working-directory: website
-        run: npm ci
-      - name: Run Prettier
-        run: just website::prettier-check
+      - name: Set up dependencies
+        uses: ./.github/actions/setup-test-dependencies
+      - name: Check Python Code Format (Ruff)
+        run: just tests::ruff-format-check
+        env:
+          RUFF_OUTPUT_FORMAT: "github"
 
   run-python-tests-lint-checks:
     name: Run Python Tests Lint Checks
@@ -117,8 +133,8 @@ jobs:
         env:
           RUFF_OUTPUT_FORMAT: "github"
 
-  run-python-tests-format-checks:
-    name: Run Python Tests Format Checks
+  run-python-tests-lockfile-check:
+    name: Run Python Tests Lockfile Check
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -128,10 +144,8 @@ jobs:
           persist-credentials: false
       - name: Set up dependencies
         uses: ./.github/actions/setup-test-dependencies
-      - name: Check Python Code Format (Ruff)
-        run: just tests::ruff-format-check
-        env:
-          RUFF_OUTPUT_FORMAT: "github"
+      - name: Check UV Lockfile
+        run: just tests::uv-lock-check
 
   run-python-tests-type-checks:
     name: Run Python Tests Type Checks
@@ -146,20 +160,6 @@ jobs:
         uses: ./.github/actions/setup-test-dependencies
       - name: Check Python Code Types (ty) Checks
         run: just tests::ty-check
-
-  run-python-tests-lockfile-check:
-    name: Run Python Tests Lockfile Check
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repository
-        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - name: Set up dependencies
-        uses: ./.github/actions/setup-test-dependencies
-      - name: Check UV Lockfile
-        run: just tests::uv-lock-check
 
   zap-scan:
     name: ZAP Scan
