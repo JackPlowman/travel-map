@@ -26,7 +26,7 @@ jobs:
       actions: read # Allow the workflow to read actions metadata
       pull-requests: write # Allow the workflow to create and modify pull request comments
       security-events: write # Allow the workflow to upload analysis results
-    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@99407128a38152d1c308f45bf1c3f62209e7067c # v2025.11.23.01
+    uses: JackPlowman/reusable-workflows/.github/workflows/common-code-checks.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
     secrets:
       workflow_github_token: ${{ secrets.GITHUB_TOKEN }}
 
@@ -38,7 +38,7 @@ jobs:
     strategy:
       matrix:
         language: [actions, javascript]
-    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@99407128a38152d1c308f45bf1c3f62209e7067c # v2025.11.23.01
+    uses: JackPlowman/reusable-workflows/.github/workflows/codeql-analysis.yml@61df2c978dadbc17ea3f190f703531f0dcce6db5 # v2025.12.30.04
     with:
       language: ${{ matrix.language }}
 
@@ -49,7 +49,7 @@ jobs:
       security-events: write # Allow the workflow to upload analysis results
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -64,7 +64,7 @@ jobs:
         run: just website::eslint-with-sarif
         continue-on-error: true
       - name: Upload analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@fdbfb4d2750291e159f0156def62b853c2798ca2 # v4.31.5
+        uses: github/codeql-action/upload-sarif@5d4e8d1aca955e8d8589aabd499c5cae939e33c7 # v4.31.9
         with:
           sarif_file: website/eslint-results.sarif
           wait-for-processing: true
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -95,7 +95,7 @@ jobs:
       security-events: write # Allow the workflow to upload analysis results
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -108,7 +108,7 @@ jobs:
           RUFF_OUTPUT_FILE: "ruff-results.sarif"
         continue-on-error: true
       - name: Upload Ruff analysis results to GitHub
-        uses: github/codeql-action/upload-sarif@fdbfb4d2750291e159f0156def62b853c2798ca2 # v4.31.5
+        uses: github/codeql-action/upload-sarif@5d4e8d1aca955e8d8589aabd499c5cae939e33c7 # v4.31.9
         with:
           sarif_file: tests/ruff-results.sarif
           wait-for-processing: true
@@ -122,7 +122,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -138,7 +138,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
@@ -152,7 +152,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
+        uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
         with:
           fetch-depth: 0
           persist-credentials: false
