@@ -34,6 +34,7 @@ ignore = [
   "S101",    # Ignore asserts
   "F811",    # Ignore redefinition of function
   "G004",    # Ignore logging format string
+  "CPY001",  # Ignore missing copyright notice at top of file
 ]
 
 fixable = ["ALL"]
