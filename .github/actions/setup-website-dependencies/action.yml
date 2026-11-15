@@ -5,13 +5,13 @@ runs:
   using: "composite"
   steps:
     - name: Set up Node.js with Cache
-      uses: actions/setup-node@v7.1.0
+      uses: actions/setup-node@v7.1.0 # zizmor: ignore[unpinned-uses] Verified by the workflow lockfile.
       with:
         node-version-file: "website/package.json"
         cache: "npm"
         cache-dependency-path: "website/package-lock.json"
     - name: Set up Just
-      uses: extractions/setup-just@v4.0.0
+      uses: extractions/setup-just@v4.0.0 # zizmor: ignore[unpinned-uses] Verified by the workflow lockfile.
       with:
         just-version: "1.59.0"
     - name: Install website Dependencies

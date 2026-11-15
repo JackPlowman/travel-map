@@ -11,11 +11,11 @@ runs:
   using: "composite"
   steps:
     - name: Set up Just
-      uses: extractions/setup-just@v4.0.0
+      uses: extractions/setup-just@v4.0.0 # zizmor: ignore[unpinned-uses] Verified by the workflow lockfile.
       with:
         just-version: "1.59.0"
     - name: Install Python and UV
-      uses: astral-sh/setup-uv@v10.3.3
+      uses: astral-sh/setup-uv@v10.3.3 # zizmor: ignore[unpinned-uses] Verified by the workflow lockfile.
       with:
         working-directory: tests
     - name: Install Playwright Dependencies
